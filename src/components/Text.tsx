@@ -12,7 +12,7 @@
 // type Props = {
 interface Props {
   // name: string;
-  children: string;
+  children: string | number;
   // name: React.ReactNode;
 }
 
