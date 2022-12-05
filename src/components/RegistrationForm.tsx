@@ -13,8 +13,9 @@ const defaultUser: User = {
 }
 
 const RegistrationForm = () => {
-  const [user, setUser] = useState<User>(defaultUser);
   const emailFieldRef = useRef<HTMLInputElement>(null);
+  const passwordFieldRef = useRef<HTMLInputElement>(null);
+  const languageFieldRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (emailFieldRef.current) {
@@ -29,26 +30,20 @@ const RegistrationForm = () => {
   // [user] - Update
   // [user.email] - Update
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    const { id, value } = event.target;
-    setUser({
-      ...user,
-      [id]: value,
-    });
-    // 1. copy all user object to new one
-    // 2. set new value password: 'value'
-    console.log('handleChange:user: ', user);
-  }
-
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
+    const user: User = {
+      email: emailFieldRef.current?.value || '',
+      password: passwordFieldRef.current?.value || '',
+      language: languageFieldRef.current?.value || '',
+    }
     console.log('handleSubmit:user: ', user);
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <p>E-mail: {user.email}, password: {user.password}</p>
+        <p>E-mail: {emailFieldRef.current?.value}, password: {passwordFieldRef.current?.value}</p>
       </div>
       <div>
         <label htmlFor="email">E-mail</label>
@@ -56,21 +51,19 @@ const RegistrationForm = () => {
           ref={emailFieldRef}
           id="email"
           type="email"
-          value={user.email}
-          // onChange={(event) => handleEmailChange(event, setEmail)} />
-          onChange={handleChange} />
+          defaultValue="ala@kota.pl" />
       </div>
       <div>
         <label htmlFor="password">Password</label>
-        <input id="password" type="password" onChange={handleChange} />
+        <input ref={passwordFieldRef} id="password" type="password" />
       </div>
       <div>
         <label htmlFor="language">Language</label>
-        <input id="language" type="text" onChange={handleChange} />
+        <input ref={languageFieldRef} id="language" type="text" />
       </div>
       <div>
         <label htmlFor="language2">Language</label>
-        <input id="language2" type="text" onChange={handleChange} />
+        <input id="language2" type="text" />
       </div>
       <input type="submit" value="Send" />
     </form>
