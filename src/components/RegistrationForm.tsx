@@ -1,34 +1,47 @@
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, FormEventHandler, useState } from 'react';
+
+interface User {
+  email: string;
+  password: string;
+  language: string;
+}
+
+const defaultUser: User = {
+  email: 'ala@wp.pl',
+  password: '',
+  language: '',
+}
 
 const RegistrationForm = () => {
-  const [email, setEmail] = useState('ala@wp.pl');
-  const [password, setPassword] = useState('');
-  const [language, setLanguage] = useState('');
+  const [user, setUser] = useState<User>(defaultUser);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    // not do this!
-    // const { id, value } = event.target;
-    // switch (id) {
-    //   case 'email':
-    //     setEmail(value);
-    //     break;
-    //   case 
-    // }
+    const { id, value } = event.target;
+    setUser({
+      ...user,
+      [id]: value,
+    });
+    // 1. copy all user object to new one
+    // 2. set new value password: 'value'
+    console.log('handleChange:user: ', user);
+  }
 
-    setEmail(event.currentTarget.value);
+  const handleSubmit: FormEventHandler = (event) => {
+    event.preventDefault();
+    console.log('handleSubmit:user: ', user);
   }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
-        <p>E-mail: {email}, password: {password}</p>
+        <p>E-mail: {user.email}, password: {user.password}</p>
       </div>
       <div>
         <label htmlFor="email">E-mail</label>
         <input
           id="email"
           type="email"
-          value={email}
+          value={user.email}
           // onChange={(event) => handleEmailChange(event, setEmail)} />
           onChange={handleChange} />
       </div>
@@ -39,6 +52,10 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="language">Language</label>
         <input id="language" type="text" onChange={handleChange} />
+      </div>
+      <div>
+        <label htmlFor="language2">Language</label>
+        <input id="language2" type="text" onChange={handleChange} />
       </div>
       <input type="submit" value="Send" />
     </form>
