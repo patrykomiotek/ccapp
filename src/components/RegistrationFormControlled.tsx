@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FormEventHandler, useState, useRef, useEffect } from 'react';
+import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
 interface User {
   email: string;
@@ -14,20 +14,6 @@ const defaultUser: User = {
 
 const RegistrationForm = () => {
   const [user, setUser] = useState<User>(defaultUser);
-  const emailFieldRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (emailFieldRef.current) {
-      emailFieldRef.current.focus();
-      emailFieldRef.current.style.border = '6px solid #f00'
-    }
-
-    return () => {
-      // Unmount
-    }
-  }, []); // [] - Mount
-  // [user] - Update
-  // [user.email] - Update
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     const { id, value } = event.target;
@@ -53,7 +39,6 @@ const RegistrationForm = () => {
       <div>
         <label htmlFor="email">E-mail</label>
         <input
-          ref={emailFieldRef}
           id="email"
           type="email"
           value={user.email}
