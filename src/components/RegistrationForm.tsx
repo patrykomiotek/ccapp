@@ -1,12 +1,12 @@
 import { ChangeEventHandler, useState } from 'react';
 
 const RegistrationForm = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('ala@wp.pl');
   const [password, setPassword] = useState('');
   const [language, setLanguage] = useState('');
 
   const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setEmail(event.target.value);
+    setEmail(event.currentTarget.value);
   }
 
   return (
@@ -16,7 +16,11 @@ const RegistrationForm = () => {
       </div>
       <div>
         <label htmlFor="email">E-mail</label>
-        <input id="email" type="email" onChange={handleEmailChange} />
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={handleEmailChange} />
       </div>
       <div>
         <label htmlFor="password">Password</label>
