@@ -11,19 +11,21 @@ import { Counter } from './components/Counter';
 // const DumbComponent = () => <p>Hello</p>;
 import { AuthInfo } from './components/Auth';
 import { AuthProvider } from './components/Auth/AuthContext';
-
+import { ThemeProvider } from './components/Theme/ThemeContext';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <AuthInfo />
-        {/* <Viewport /> */}
-        {/* <Counter /> */}
-        {/* <RegistrationPage /> */}
+        <ThemeProvider>
+          <AuthInfo />
+          {/* <Viewport /> */}
+          {/* <Counter /> */}
+          <Generator />
+          {/* <RegistrationPage /> */}
+        </ThemeProvider>
       </AuthProvider>
 
-      {/* <Generator /> */}
       {/* <Text>Today is Monday</Text>
       <Text>Hello</Text>
       <Text>Lorem</Text> */}

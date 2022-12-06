@@ -2,22 +2,30 @@ import { MouseEventHandler, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid'; // @types/uuid
 import { AuthInfo } from '../components/Auth'
+import { useThemeContext } from '../components/Theme/ThemeContext';
+import { ThemeSwitcher } from '../components/Theme/ThemeSwitcher';
+import './Generator.css';
 
 const Generator = () => {
   // useState -> [var, fn]
   // const [id, setId] = useState<number>(0);
   const [id, setId] = useState<string>(uuidv4());
+  const { theme } = useThemeContext();
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     setId(uuidv4());
   }
 
+  const className = theme === 'DARK' ? 'dark' : '';
   return (
-    <> {/* React.Fragment */}
+    <div className={className}> {/* React.Fragment */}
       <p>Tekst {id}</p>
-      <button onClick={handleClick}>Click me</button>
-      <AuthInfo />
-    </>
+      <div>
+        <button onClick={handleClick}>Click me</button>
+      </div>
+      {/* <AuthInfo /> */}
+      <ThemeSwitcher />
+    </div>
   )
 }
 
