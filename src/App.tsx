@@ -5,14 +5,15 @@ import { Text } from './components/Text';
 import { Generator } from './components/Generator';
 // import { RegistrationForm } from './components/RegistrationForm';
 import { RegistrationPage } from './pages/RegistrationPage';
-import { Viewport } from './components/Viewport';
+// import { Viewport } from './components/Viewport';
+import { Counter } from './components/Counter';
 // const DumbComponent = () => <p>Hello</p>;
 
 function App() {
   return (
     <div className="App">
-      <Viewport />
-      <Viewport />
+      {/* <Viewport /> */}
+      <Counter />
       {/* <RegistrationPage /> */}
       {/* <Generator /> */}
       {/* <Text>Today is Monday</Text>
