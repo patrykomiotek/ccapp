@@ -3,6 +3,7 @@ import { FormEventHandler, MouseEventHandler, useRef, useState, useEffect } from
 import { MagicButton } from '../ui/atoms/MagicButton'; // @atoms/MagicButton
 // import type { User } from '../types';
 import type { User } from '../types/User';
+import { Input } from '../ui/atoms/Input';
 
 interface Props {
   defaultValues: User;
@@ -54,22 +55,25 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
       <div>
         <p>E-mail: {emailFieldRef.current?.value}, password: {passwordFieldRef.current?.value}</p>
       </div>
-      <div>
+      <Input ref={emailFieldRef} label="E-mail" id="email" type="email" />
+      {/* <div>
         <label htmlFor="email">E-mail</label>
         <input
           ref={emailFieldRef}
           id="email"
           type="email"
           defaultValue={defaultValues.email} />
-      </div>
-      <div>
+      </div> */}
+      <Input ref={passwordFieldRef} label="Password" id="password" type="password" />
+      {/* <div>
         <label htmlFor="password">Password</label>
         <input ref={passwordFieldRef} defaultValue={defaultValues.password} id="password" type="password" />
-      </div>
-      <div>
+      </div> */}
+      <Input ref={languageFieldRef} label="Language" id="language" type="text" defaultValue="php" />
+      {/* <div>
         <label htmlFor="language">Language</label>
         <input ref={languageFieldRef} defaultValue={defaultValues.language} id="language" type="text" />
-      </div>
+      </div> */}
       <input type="submit" value="Send" />
       <MagicButton
         ref={buttonRef}
