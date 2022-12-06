@@ -1,13 +1,18 @@
 import { FormEventHandler, useRef, useEffect } from 'react';
-// import type { User } from '../types';
-import type { User } from '../types/User';
 
-interface Props {
-  defaultValues: User;
-  onSubmitXYZ: (user: User) => void
+interface User {
+  email: string;
+  password: string;
+  language: string;
 }
 
-const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
+const defaultUser: User = {
+  email: 'ala@wp.pl',
+  password: '',
+  language: '',
+}
+
+const RegistrationForm = () => {
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
@@ -33,7 +38,6 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
       language: languageFieldRef.current?.value || '',
     }
     console.log('handleSubmit:user: ', user);
-    onSubmitXYZ(user);
   }
 
   return (
@@ -47,15 +51,15 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
           ref={emailFieldRef}
           id="email"
           type="email"
-          defaultValue={defaultValues.email} />
+          defaultValue="ala@kota.pl" />
       </div>
       <div>
         <label htmlFor="password">Password</label>
-        <input ref={passwordFieldRef} defaultValue={defaultValues.password} id="password" type="password" />
+        <input ref={passwordFieldRef} id="password" type="password" />
       </div>
       <div>
         <label htmlFor="language">Language</label>
-        <input ref={languageFieldRef} defaultValue={defaultValues.language} id="language" type="text" />
+        <input ref={languageFieldRef} id="language" type="text" />
       </div>
       <input type="submit" value="Send" />
     </form>
