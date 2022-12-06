@@ -2,7 +2,7 @@ import { MouseEventHandler, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid'; // @types/uuid
 import { AuthInfo } from '../components/Auth'
-import { useThemeContext } from '../components/Theme/ThemeContext';
+import { useThemeContext, Theme } from '../components/Theme/ThemeContext';
 import { ThemeSwitcher } from '../components/Theme/ThemeSwitcher';
 import './Generator.css';
 
@@ -16,7 +16,7 @@ const Generator = () => {
     setId(uuidv4());
   }
 
-  const className = theme === 'DARK' ? 'dark' : '';
+  const className = theme === Theme.DARK ? 'dark' : '';
   return (
     <div className={className}> {/* React.Fragment */}
       <p>Tekst {id}</p>
