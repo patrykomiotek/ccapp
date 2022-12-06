@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { AuthInfo } from '../components/Auth'
 
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -19,7 +18,6 @@ const Counter = () => {
   }, []);
   return (
     <>
-      <AuthInfo />
       <p>Count: {count}</p>
     </>
   );

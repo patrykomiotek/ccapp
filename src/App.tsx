@@ -9,29 +9,21 @@ import { RegistrationPage } from './pages/RegistrationPage';
 // import { Viewport } from './components/Viewport';
 import { Counter } from './components/Counter';
 // const DumbComponent = () => <p>Hello</p>;
-import { AuthInfo, AuthContext } from './components/Auth';
+import { AuthInfo } from './components/Auth';
+import { AuthProvider } from './components/Auth/AuthContext';
 
 
 function App() {
-  const [isAuthorized, setIsAuthorized] = useState(false);
-
   return (
     <div className="App">
-      <AuthContext.Provider value={{
-        email: 'ala@wp.pl',
-        authorized: isAuthorized,
-        language: 'kontlin',
-        // setIsAuthorized: setIsAuthorized,
-        setIsAuthorized,
-      }}>
+      <AuthProvider>
         <AuthInfo />
         {/* <Viewport /> */}
-        <Counter />
-        <RegistrationPage />
-      </AuthContext.Provider>
+        {/* <Counter /> */}
+        {/* <RegistrationPage /> */}
+      </AuthProvider>
 
-
-      <Generator />
+      {/* <Generator /> */}
       {/* <Text>Today is Monday</Text>
       <Text>Hello</Text>
       <Text>Lorem</Text> */}
