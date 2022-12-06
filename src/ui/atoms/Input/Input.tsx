@@ -3,7 +3,7 @@ import { forwardRef, Ref, ComponentPropsWithRef, ComponentPropsWithoutRef } from
 interface Props extends ComponentPropsWithRef<'input'> {
 // interface Props extends ComponentPropsWithoutRef<'input'> {
   label: string;
-  id: string;
+  // id: string;
 }
 
 const Input = forwardRef((
