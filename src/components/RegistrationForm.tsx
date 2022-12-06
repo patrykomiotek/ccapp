@@ -1,5 +1,5 @@
 import Confetti from 'react-confetti';
-import { FormEventHandler, useRef, useState, useEffect } from 'react';
+import { FormEventHandler, MouseEventHandler, useRef, useState, useEffect } from 'react';
 import { MagicButton } from '../ui/atoms/MagicButton'; // @atoms/MagicButton
 // import type { User } from '../types';
 import type { User } from '../types/User';
@@ -15,6 +15,7 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (emailFieldRef.current) {
@@ -42,6 +43,12 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
     setIsSent(true);
   }
 
+  const handleMouseEnter: MouseEventHandler<HTMLButtonElement> = () => {
+    if (buttonRef.current) {
+      buttonRef.current.style.background = 'red';
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -64,7 +71,9 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
         <input ref={languageFieldRef} defaultValue={defaultValues.language} id="language" type="text" />
       </div>
       <input type="submit" value="Send" />
-      <MagicButton>Hello</MagicButton>
+      <MagicButton
+        ref={buttonRef}
+        onMouseEnter={handleMouseEnter}>Hello</MagicButton>
       {showConfetti && <Confetti width={600} height={400} />}
     </form>
   );
