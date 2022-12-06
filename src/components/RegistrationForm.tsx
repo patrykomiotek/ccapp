@@ -1,4 +1,6 @@
-import { FormEventHandler, useRef, useEffect } from 'react';
+import Confetti from 'react-confetti';
+import { FormEventHandler, useRef, useState, useEffect } from 'react';
+import { MagicButton } from '../ui/atoms/MagicButton'; // @atoms/MagicButton
 // import type { User } from '../types';
 import type { User } from '../types/User';
 
@@ -8,6 +10,8 @@ interface Props {
 }
 
 const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
+  const [isSent, setIsSent] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
@@ -34,6 +38,8 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
     }
     console.log('handleSubmit:user: ', user);
     onSubmitXYZ(user);
+    setShowConfetti(true);
+    setIsSent(true);
   }
 
   return (
@@ -58,6 +64,8 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
         <input ref={languageFieldRef} defaultValue={defaultValues.language} id="language" type="text" />
       </div>
       <input type="submit" value="Send" />
+      <MagicButton>Hello</MagicButton>
+      {showConfetti && <Confetti width={600} height={400} />}
     </form>
   );
 }
