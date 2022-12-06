@@ -1,6 +1,7 @@
 import { MouseEventHandler, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid'; // @types/uuid
+import { AuthInfo } from '../components/Auth'
 
 const Generator = () => {
   // useState -> [var, fn]
@@ -15,6 +16,7 @@ const Generator = () => {
     <> {/* React.Fragment */}
       <p>Tekst {id}</p>
       <button onClick={handleClick}>Click me</button>
+      <AuthInfo />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Text } from './components/Text';
@@ -12,19 +13,25 @@ import { AuthInfo, AuthContext } from './components/Auth';
 
 
 function App() {
+  const [isAuthorized, setIsAuthorized] = useState(false);
+
   return (
     <div className="App">
       <AuthContext.Provider value={{
         email: 'ala@wp.pl',
-        authorized: true,
-        language: 'kontlin'
+        authorized: isAuthorized,
+        language: 'kontlin',
+        // setIsAuthorized: setIsAuthorized,
+        setIsAuthorized,
       }}>
         <AuthInfo />
+        {/* <Viewport /> */}
+        <Counter />
+        <RegistrationPage />
       </AuthContext.Provider>
-      {/* <Viewport /> */}
-      {/* <Counter /> */}
-      {/* <RegistrationPage /> */}
-      {/* <Generator /> */}
+
+
+      <Generator />
       {/* <Text>Today is Monday</Text>
       <Text>Hello</Text>
       <Text>Lorem</Text> */}
