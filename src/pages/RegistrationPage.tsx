@@ -1,5 +1,5 @@
-import { RegistrationForm } from '../components/RegistrationForm';
-import { User } from '../types';
+import { RegistrationForm } from '@components/RegistrationForm';
+import type { User } from '@apptypes/User';
 
 const defaultUser: User = {
   email: 'ala@wp.pl',

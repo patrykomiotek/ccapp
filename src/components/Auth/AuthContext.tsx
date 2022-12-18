@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from 'react';
-import { User } from '../../types';
+import { User } from '@apptypes/User';
 
 // const defaultValues: User = {
 //   email: '',

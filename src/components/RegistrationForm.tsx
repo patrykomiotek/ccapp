@@ -1,9 +1,9 @@
 import Confetti from 'react-confetti';
 import { FormEventHandler, MouseEventHandler, useRef, useState, useEffect } from 'react';
-import { MagicButton } from '../ui/atoms/MagicButton'; // @atoms/MagicButton
-// import type { User } from '../types';
-import type { User } from '../types/User';
-import { Input } from '../ui/atoms/Input';
+
+import { MagicButton } from '@atoms/MagicButton';
+import type { User } from '@apptypes/User';
+import { Input } from '@atoms/Input';
 
 interface Props {
   defaultValues: User;

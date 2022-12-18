@@ -1,4 +1,4 @@
-import { forwardRef, MouseEventHandler, useRef, Ref } from 'react';
+import { forwardRef, MouseEventHandler, Ref } from 'react';
 
 interface Props {
   children: string;

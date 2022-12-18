@@ -1,4 +1,4 @@
-import { forwardRef, Ref, ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
+import { forwardRef, Ref, ComponentPropsWithRef } from 'react';
 
 interface Props extends ComponentPropsWithRef<'input'> {
 // interface Props extends ComponentPropsWithoutRef<'input'> {

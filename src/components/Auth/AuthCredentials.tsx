@@ -1,4 +1,4 @@
-import { useAuthContext } from '../Auth/AuthContext';
+import { useAuthContext } from '@components/Auth/AuthContext';
 
 const AuthCredentials = () => {
   const user = useAuthContext();
