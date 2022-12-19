@@ -1,0 +1,14 @@
+@import '../../variables';
+
+.main {
+  color: var(--blue);
+  padding: 6px;
+  font-size: 16px;
+  margin: 0 4px;
+  text-decoration: none;
+}
+
+.main:hover {
+  color: var(--red);
+  text-decoration: underline;
+}

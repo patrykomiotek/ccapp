@@ -1,38 +1,30 @@
 import './App.css';
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Text } from '@atoms/Text';
-import { Generator } from '@components/Generator';
-import { RegistrationForm } from '@components/RegistrationForm';
-import { RegistrationPage } from '@pages/RegistrationPage';
-// import { Viewport } from '@components/Viewport';
-import { Counter } from '@components/Counter';
-// const DumbComponent = () => <p>Hello</p>;
-import { AuthInfo } from '@components/Auth';
 import { AuthProvider } from '@components/Auth/AuthContext';
 import { ThemeProvider } from '@components/Theme/ThemeContext';
-import { BuggyComponent } from '@components/ErrorBoundary/BuggyComponent';
 import { ErrorBoundary } from '@components/ErrorBoundary';
-import { ProductsList } from '@components/ProductsList';
+import { AuthPage } from '@pages/AuthPage';
+import { GeneratorPage } from '@pages/GeneratorPage';
+import { HomePage } from '@pages/HomePage';
+import { RegistrationPage } from '@pages/RegistrationPage';
+import { Menu } from '@molecules/Menu';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <ThemeProvider>
-          {/* <AuthInfo /> */}
-          {/* <Viewport /> */}
-
           <ErrorBoundary fallback={<p>Error #2</p>}>
-
-          </ErrorBoundary>{/* <Counter /> */}
-          {/* <Generator /> */}
-
-          <ErrorBoundary fallback={<p>Error #1</p>}>
-            {/* <BuggyComponent /> */}
-            <RegistrationPage />
-            {/* <ProductsList /> */}
+            <Router>
+              <Menu />
+              <Routes>
+                <Route path="/registration" element={<RegistrationPage />} />
+                <Route path="/generator" element={<GeneratorPage />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/" element={<HomePage />} />
+              </Routes>
+            </Router>
           </ErrorBoundary>
         </ThemeProvider>
       </AuthProvider>
