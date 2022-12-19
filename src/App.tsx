@@ -12,6 +12,8 @@ import { Counter } from '@components/Counter';
 import { AuthInfo } from '@components/Auth';
 import { AuthProvider } from '@components/Auth/AuthContext';
 import { ThemeProvider } from '@components/Theme/ThemeContext';
+import { BuggyComponent } from '@components/ErrorBoundary/BuggyComponent';
+import { ErrorBoundary } from '@components/ErrorBoundary';
 
 function App() {
   return (
@@ -20,9 +22,16 @@ function App() {
         <ThemeProvider>
           {/* <AuthInfo /> */}
           {/* <Viewport /> */}
-          {/* <Counter /> */}
+
+          <ErrorBoundary fallback={<p>Error #2</p>}>
+
+          </ErrorBoundary>{/* <Counter /> */}
           {/* <Generator /> */}
-          <RegistrationPage />
+
+          <ErrorBoundary fallback={<p>Error #1</p>}>
+            <BuggyComponent />
+            <RegistrationPage />
+          </ErrorBoundary>
         </ThemeProvider>
       </AuthProvider>
 
