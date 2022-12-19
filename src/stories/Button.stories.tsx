@@ -39,3 +39,5 @@ Small.args = {
   size: 'small',
   label: 'Button',
 };
+
+// export const ButtonSmall = <Button size="small" />
