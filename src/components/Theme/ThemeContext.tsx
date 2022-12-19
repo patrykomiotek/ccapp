@@ -33,7 +33,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode}) => {
   return (
     <ThemeContext.Provider value={{
       theme,
-      toggle,
+      toggle
     }}>
       {children}
     </ThemeContext.Provider>

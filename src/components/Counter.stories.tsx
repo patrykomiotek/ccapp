@@ -9,4 +9,4 @@ export default {
 
 // const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = <Counter />
+export const _Counter = <Counter />
