@@ -1,0 +1,10 @@
+@import '../../variables';
+
+.main {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 6px;
+  font-size: 16px;
+  border: var(--dark) 1px solid;
+  margin: 0 4px;
+}

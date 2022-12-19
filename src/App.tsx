@@ -31,8 +31,8 @@ function App() {
 
           <ErrorBoundary fallback={<p>Error #1</p>}>
             {/* <BuggyComponent /> */}
-            {/* <RegistrationPage /> */}
-            <ProductsList />
+            <RegistrationPage />
+            {/* <ProductsList /> */}
           </ErrorBoundary>
         </ThemeProvider>
       </AuthProvider>

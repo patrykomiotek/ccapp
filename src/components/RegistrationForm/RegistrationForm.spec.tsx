@@ -1,10 +1,10 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 // import fireEvent from "@testing-library/react";
 import { RegistrationForm } from "./RegistrationForm";
 
 describe('<RegistrationForm />', () => {
-  it('should display error message for email field', () => {
+  it('should display error message for email field', async () => {
     const onSubmit = jest.fn();
     const defaultValues = {
       email: 'test@wp.pl',
@@ -14,20 +14,20 @@ describe('<RegistrationForm />', () => {
         defaultValues={defaultValues}
         onSubmit={onSubmit} />
     );
-    debug();
     // console.log(container);
 
-    userEvent.type(
-      screen.getByRole('textbox', { name: 'E-mail'}),
-      'abcd666',
-    );
-    fireEvent.blur(screen.getByRole('textbox', { name: 'E-mail'}))
-    // fireEvent.
-    // screen.getByLabelText('E-mail');
-    debug();
-    userEvent.click(screen.getByRole('button', {  name: /send/i}));
-    // userEvent.click(screen.getByText(/send/i));
+    const emailField = screen.getByRole('textbox', { name: 'E-mail' });
 
-    expect(screen.getByText('Email is invalid')).toBeInTheDocument();
+    userEvent.clear(emailField);
+
+    userEvent.type(emailField, 'abcd666');
+
+    fireEvent.blur(emailField);
+
+    expect(screen.getByText('E-mail is invalid')).toBeInTheDocument();
+
+
+    userEvent.click(screen.getByRole('button', {  name: /send/i }));
+
   });
 });

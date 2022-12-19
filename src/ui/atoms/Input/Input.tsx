@@ -1,5 +1,7 @@
 import { forwardRef, Ref, ComponentPropsWithRef } from 'react';
 
+import './Input.module.scss';
+
 interface Props extends ComponentPropsWithRef<'input'> {
 // interface Props extends ComponentPropsWithoutRef<'input'> {
   label: string;

@@ -1,12 +1,14 @@
 import Confetti from 'react-confetti';
-import { FormEventHandler, MouseEventHandler, useRef, useState, useEffect } from 'react';
+import { FormEventHandler, MouseEventHandler, useRef, useState, useEffect, FocusEventHandler } from 'react';
 
 import { MagicButton } from '@atoms/MagicButton';
+import { Button } from '@atoms/Button';
 import type { User } from '@apptypes/User';
 import { Input } from '@atoms/Input';
+import { ButtonRow } from '@atoms/ButtonRow';
 
 interface Props {
-  defaultValues: User;
+  defaultValues?: User;
   onSubmit: (user: User) => void
 }
 
@@ -17,11 +19,14 @@ const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+  });
 
   useEffect(() => {
     if (emailFieldRef.current) {
       emailFieldRef.current.focus();
-      emailFieldRef.current.style.border = '6px solid #f00'
+      emailFieldRef.current.style.border = '1px solid #c0392b';
     }
 
     return () => {
@@ -50,6 +55,19 @@ const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
     }
   }
 
+  const handleEmailBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+    console.log('event: ', event.target.value);
+    if (!event.target.value.includes('@')) {
+      setFormErrors({
+        email: 'E-mail is invalid',
+      });
+    } else {
+      setFormErrors({
+        email: '',
+      });
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -59,8 +77,12 @@ const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
         ref={emailFieldRef}
         label="E-mail"
         id="email"
+        // type="email"
         type="email"
+        defaultValue={defaultValues?.email}
+        onBlur={handleEmailBlur}
       />
+      {formErrors.email && <p>E-mail is invalid</p>}
       <Input
         ref={passwordFieldRef}
         label="Password"
@@ -72,12 +94,14 @@ const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
         label="Language"
         id="language"
         type="text"
-        defaultValue="php"
+        defaultValue={defaultValues?.language}
       />
-      <input type="submit" value="Send" />
-      <MagicButton
-        ref={buttonRef}
-        onMouseEnter={handleMouseEnter}>Hello</MagicButton>
+      <ButtonRow>
+        <Button type="submit">Send</Button>
+        <MagicButton
+          ref={buttonRef}
+          onMouseEnter={handleMouseEnter}>Hello</MagicButton>
+      </ButtonRow>
       {/* {showConfetti && <Confetti width={600} height={400} />} */}
       {/* {showConfetti ? <Confetti width={600} height={400} /> : null} */}
     </form>

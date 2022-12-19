@@ -10,7 +10,7 @@ describe('<Generator />', () => {
 
     const uuid = screen.getByText(/[a-z0-9-]{36}/).textContent;
 
-    userEvent.click(screen.getByRole('button', { name: 'Click me'}));
+    userEvent.click(screen.getByRole('button', { name: 'Refresh' }));
 
     const uuidChanged = screen.getByText(/[a-z0-9-]{36}/).textContent;
 

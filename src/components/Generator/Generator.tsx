@@ -3,7 +3,9 @@ import { MouseEventHandler, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // @types/uuid
 import { useThemeContext, Theme } from '@components/Theme/ThemeContext';
 import { ThemeSwitcher } from '@components/Theme/ThemeSwitcher';
+import { Button } from '@atoms/Button';
 import './Generator.css';
+import { ButtonRow } from '@atoms/ButtonRow';
 
 const Generator = () => {
   // useState -> [var, fn]
@@ -20,9 +22,9 @@ const Generator = () => {
     <div className={className}> {/* React.Fragment */}
       {/* <p>Tekst {id}</p> */}
       <p>{id}</p>
-      <div>
-        <button onClick={handleClick}>Click me</button>
-      </div>
+      <ButtonRow>
+        <Button onClick={handleClick}>Refresh</Button>
+      </ButtonRow>
       {/* <AuthInfo /> */}
       <ThemeSwitcher />
     </div>

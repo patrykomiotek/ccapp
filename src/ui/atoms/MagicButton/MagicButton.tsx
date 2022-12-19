@@ -1,5 +1,7 @@
 import { forwardRef, MouseEventHandler, Ref } from 'react';
 
+import styles from './MagicButton.module.scss'
+
 interface Props {
   children: string;
   onMouseEnter: MouseEventHandler<HTMLButtonElement>;
@@ -15,7 +17,7 @@ const MagicButton = forwardRef((
     <button
       ref={ref}
       onMouseEnter={props.onMouseEnter}
-      style={{ backgroundColor: 'blue' }}
+      className={styles.main}
       >
       {props.children}
     </button>

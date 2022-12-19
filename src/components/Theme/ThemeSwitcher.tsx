@@ -1,9 +1,11 @@
 import { useThemeContext } from './ThemeContext';
 
+import { Button } from '@atoms/Button';
+
 const ThemeSwitcher = () => {
   const { toggle } = useThemeContext();
   return (
-    <button onClick={() => toggle()}>Toggle theme</button>
+    <Button onClick={() => toggle()}>Toggle theme</Button>
   );
 }
 

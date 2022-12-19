@@ -1,4 +1,5 @@
 import { useAuthContext } from '@components/Auth/AuthContext';
+import { Button } from '@atoms/Button';
 
 const AuthCredentials = () => {
   const user = useAuthContext();
@@ -6,7 +7,7 @@ const AuthCredentials = () => {
   return (
     <div>
       <p>Is Logged in: {user.authorized ? 'Yes' : 'No' }, {user.email}</p>
-      <button onClick={() => user.toggle()}>Toggle</button>
+      <Button onClick={() => user.toggle()}>Toggle</Button>
     </div>
   );
 }

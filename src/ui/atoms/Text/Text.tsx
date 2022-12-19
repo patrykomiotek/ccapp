@@ -1,4 +1,5 @@
 // import React from 'react';
+import styles from './Text.module.scss';
 
 // Code style
 // 1. export default
@@ -18,7 +19,7 @@ interface Props {
 
 const Text = ({ children }: Props) => {
   return (
-    <p>{children}</p>
+    <p className={styles.main}>{children}</p>
   );
 }
 
