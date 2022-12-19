@@ -1,7 +1,7 @@
-import { render, screen, debug } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Generator } from "./Generator";
-import { ThemeProvider } from "./Theme/ThemeContext";
+import { ThemeProvider } from "@components/Theme/ThemeContext";
 
 describe('<Generator />', () => {
   it('should generate new value after click', () => {

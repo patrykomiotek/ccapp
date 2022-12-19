@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import { Text } from '@components/Text';
+import { Text } from '@atoms/Text';
 import { Generator } from '@components/Generator';
 // import { RegistrationForm } from '@components/RegistrationForm';
 import { RegistrationPage } from '@pages/RegistrationPage';
