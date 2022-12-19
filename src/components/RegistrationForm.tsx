@@ -79,6 +79,7 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
         ref={buttonRef}
         onMouseEnter={handleMouseEnter}>Hello</MagicButton>
       {showConfetti && <Confetti width={600} height={400} />}
+      {/* {showConfetti ? <Confetti width={600} height={400} /> : null} */}
     </form>
   );
 }
