@@ -18,7 +18,8 @@ const Generator = () => {
   const className = theme === Theme.DARK ? 'dark' : '';
   return (
     <div className={className}> {/* React.Fragment */}
-      <p>Tekst {id}</p>
+      {/* <p>Tekst {id}</p> */}
+      <p>{id}</p>
       <div>
         <button onClick={handleClick}>Click me</button>
       </div>
