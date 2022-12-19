@@ -14,6 +14,7 @@ import { AuthProvider } from '@components/Auth/AuthContext';
 import { ThemeProvider } from '@components/Theme/ThemeContext';
 import { BuggyComponent } from '@components/ErrorBoundary/BuggyComponent';
 import { ErrorBoundary } from '@components/ErrorBoundary';
+import { ProductsList } from '@components/ProductsList';
 
 function App() {
   return (
@@ -29,8 +30,9 @@ function App() {
           {/* <Generator /> */}
 
           <ErrorBoundary fallback={<p>Error #1</p>}>
-            <BuggyComponent />
-            <RegistrationPage />
+            {/* <BuggyComponent /> */}
+            {/* <RegistrationPage /> */}
+            <ProductsList />
           </ErrorBoundary>
         </ThemeProvider>
       </AuthProvider>
