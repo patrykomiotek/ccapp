@@ -12,7 +12,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-const useTheme = (defaultTheme = Theme.LIGHT) => {
+export const useTheme = (defaultTheme = Theme.LIGHT) => {
   const [theme, setTheme] = useState(defaultTheme);
   const toggle = () => setTheme(
     theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
