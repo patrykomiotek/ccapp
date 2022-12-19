@@ -15,7 +15,7 @@ const RegistrationPage = () => {
   return (
     <RegistrationForm
       defaultValues={defaultUser}
-      onSubmitXYZ={foo}
+      onSubmit={foo}
     />
   );
 }

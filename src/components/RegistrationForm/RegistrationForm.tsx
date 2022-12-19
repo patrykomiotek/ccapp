@@ -7,10 +7,10 @@ import { Input } from '@atoms/Input';
 
 interface Props {
   defaultValues: User;
-  onSubmitXYZ: (user: User) => void
+  onSubmit: (user: User) => void
 }
 
-const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
+const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
   const [isSent, setIsSent] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const emailFieldRef = useRef<HTMLInputElement>(null);
@@ -39,7 +39,7 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
       language: languageFieldRef.current?.value || '',
     }
     console.log('handleSubmit:user: ', user);
-    onSubmitXYZ(user);
+    onSubmit(user);
     setShowConfetti(true);
     setIsSent(true);
   }
@@ -55,30 +55,30 @@ const RegistrationForm = ({ defaultValues, onSubmitXYZ }: Props) => {
       <div>
         <p>E-mail: {emailFieldRef.current?.value}, password: {passwordFieldRef.current?.value}</p>
       </div>
-      <Input ref={emailFieldRef} label="E-mail" id="email" type="email" />
-      {/* <div>
-        <label htmlFor="email">E-mail</label>
-        <input
-          ref={emailFieldRef}
-          id="email"
-          type="email"
-          defaultValue={defaultValues.email} />
-      </div> */}
-      <Input ref={passwordFieldRef} label="Password" id="password" type="password" />
-      {/* <div>
-        <label htmlFor="password">Password</label>
-        <input ref={passwordFieldRef} defaultValue={defaultValues.password} id="password" type="password" />
-      </div> */}
-      <Input ref={languageFieldRef} label="Language" id="language" type="text" defaultValue="php" />
-      {/* <div>
-        <label htmlFor="language">Language</label>
-        <input ref={languageFieldRef} defaultValue={defaultValues.language} id="language" type="text" />
-      </div> */}
+      <Input
+        ref={emailFieldRef}
+        label="E-mail"
+        id="email"
+        type="email"
+      />
+      <Input
+        ref={passwordFieldRef}
+        label="Password"
+        id="password"
+        type="password"
+      />
+      <Input
+        ref={languageFieldRef}
+        label="Language"
+        id="language"
+        type="text"
+        defaultValue="php"
+      />
       <input type="submit" value="Send" />
       <MagicButton
         ref={buttonRef}
         onMouseEnter={handleMouseEnter}>Hello</MagicButton>
-      {showConfetti && <Confetti width={600} height={400} />}
+      {/* {showConfetti && <Confetti width={600} height={400} />} */}
       {/* {showConfetti ? <Confetti width={600} height={400} /> : null} */}
     </form>
   );

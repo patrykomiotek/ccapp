@@ -18,10 +18,10 @@ function App() {
     <div className="App">
       <AuthProvider>
         <ThemeProvider>
-          <AuthInfo />
+          {/* <AuthInfo /> */}
           {/* <Viewport /> */}
           {/* <Counter /> */}
-          <Generator />
+          {/* <Generator /> */}
           <RegistrationPage />
         </ThemeProvider>
       </AuthProvider>
