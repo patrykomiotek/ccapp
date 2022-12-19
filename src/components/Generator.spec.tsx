@@ -16,4 +16,12 @@ describe('<Generator />', () => {
 
     expect(uuid).not.toBe(uuidChanged);
   });
+
+  it('should be visible', () => {
+    render(<ThemeProvider><Generator /></ThemeProvider>);
+
+    const uuid = screen.getByText(/[a-z0-9-]{36}/);
+
+    expect(uuid).toBeInTheDocument();
+  });
 });
