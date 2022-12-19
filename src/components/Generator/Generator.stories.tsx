@@ -1,7 +1,7 @@
 import { ComponentMeta } from '@storybook/react';
 
 import { Generator } from './Generator';
-import { ThemeProvider } from '@components/Theme/ThemeContext';
+import { ThemeProvider, Theme } from '@components/Theme/ThemeContext';
 
 export default {
   title: 'App/Generator',
@@ -10,4 +10,8 @@ export default {
 
 export const _Generator = () => (
   <ThemeProvider><Generator /></ThemeProvider>
+);
+
+export const _GeneratorDark = () => (
+  <ThemeProvider currentTheme={Theme.DARK}><Generator /></ThemeProvider>
 );

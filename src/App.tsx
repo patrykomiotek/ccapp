@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { Text } from '@atoms/Text';
 import { Generator } from '@components/Generator';
-// import { RegistrationForm } from '@components/RegistrationForm';
+import { RegistrationForm } from '@components/RegistrationForm';
 import { RegistrationPage } from '@pages/RegistrationPage';
 // import { Viewport } from '@components/Viewport';
 import { Counter } from '@components/Counter';
@@ -22,7 +22,7 @@ function App() {
           {/* <Viewport /> */}
           {/* <Counter /> */}
           <Generator />
-          {/* <RegistrationPage /> */}
+          <RegistrationPage />
         </ThemeProvider>
       </AuthProvider>
 

@@ -12,8 +12,8 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
-const useTheme = () => {
-  const [theme, setTheme] = useState(Theme.LIGHT);
+const useTheme = (defaultTheme = Theme.LIGHT) => {
+  const [theme, setTheme] = useState(defaultTheme);
   const toggle = () => setTheme(
     theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT
   );
@@ -28,8 +28,10 @@ export const useThemeContext = () => {
   return context;
 }
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode}) => {
-  const { theme, toggle } = useTheme();
+export const ThemeProvider = (
+  { children, currentTheme }: { children: React.ReactNode, currentTheme?: Theme}
+  ) => {
+  const { theme, toggle } = useTheme(currentTheme ?? Theme.LIGHT);
   return (
     <ThemeContext.Provider value={{
       theme,
