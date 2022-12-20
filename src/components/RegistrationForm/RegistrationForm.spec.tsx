@@ -26,7 +26,6 @@ describe('<RegistrationForm />', () => {
 
     expect(screen.getByText('E-mail is invalid')).toBeInTheDocument();
 
-
     userEvent.click(screen.getByRole('button', {  name: /send/i }));
 
   });

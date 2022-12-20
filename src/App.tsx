@@ -9,6 +9,7 @@ import { GeneratorPage } from '@pages/GeneratorPage';
 import { HomePage } from '@pages/HomePage';
 import { RegistrationPage } from '@pages/RegistrationPage';
 import { Menu } from '@molecules/Menu';
+import { ProductsList } from '@components/ProductsList';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/generator" element={<GeneratorPage />} />
                 <Route path="/auth" element={<AuthPage />} />
+                <Route path="/products" element={<ProductsList />} />
                 <Route path="/" element={<HomePage />} />
               </Routes>
             </Router>

@@ -9,6 +9,7 @@ const Menu = () => {
       <Link to="/registration">Registration</Link>
       <Link to="/generator">Generator</Link>
       <Link to="/auth">Auth</Link>
+      <Link to="/products">Products</Link>
     </nav>
   );
 }

@@ -20,3 +20,11 @@ const Link = (
 };
 
 export { Link };
+
+
+// class MuiLink extends Link {
+//   theme = 'light';
+//   return (
+//     <Link muiTheme={this.theme} />
+//   )
+// }

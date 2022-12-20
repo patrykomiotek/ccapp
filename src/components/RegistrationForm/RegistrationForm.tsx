@@ -77,7 +77,6 @@ const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
         ref={emailFieldRef}
         label="E-mail"
         id="email"
-        // type="email"
         type="email"
         defaultValue={defaultValues?.email}
         onBlur={handleEmailBlur}
