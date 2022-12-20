@@ -1,3 +1,8 @@
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+
+// Initialize MSW
+initialize();
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,4 +11,13 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['Atoms', 'Molecules', 'Organisms'],
+      method: 'numeric'
+    },
+  },
 }
+
+// Provide the MSW addon decorator globally
+export const decorators = [mswDecorator];

@@ -1,10 +1,29 @@
+import { useEffect, useState } from 'react';
 import { useApi } from '@hooks/useApi';
 import type { Product } from '@apptypes/Product';
+import { fetchProducts, fetchProductsWithLogic } from '@services/products';
 
 const ProductsList = () => {
-  // const status = useApi<Product[]>('/products');
-  const { data, isLoading, isError } = useApi<Product[]>('/products');
-  // status.products
+  const [data, setData] = useState<Product[] | undefined>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const fetchData = async () => {
+    try {
+      // const response = await fetchProducts();
+      const response = await fetchProductsWithLogic();
+
+      setData(response?.records);
+
+      //setProducts(response.data)
+    } catch (error) {
+      console.error('error: ', error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
