@@ -87,6 +87,9 @@ const RegistrationForm = ({ defaultValues, onSubmit }: Props) => {
         label="Password"
         id="password"
         type="password"
+        onClick={() => {
+          console.log('Hej!');
+        }}
       />
       <Input
         ref={languageFieldRef}

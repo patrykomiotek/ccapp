@@ -50,7 +50,7 @@ export function Toggle({ children }: ToggleProps) {
 };
 
 // compound components
-<Toggle> // -> on, toggle
+{/* <Toggle> // -> on, toggle
   <ToggleButton />
   <ToggleButton />
   <Button/>
@@ -61,4 +61,4 @@ export function Toggle({ children }: ToggleProps) {
   <CloseBtn />
   <Text></Text>
   <CancelButton />
-</Dialog>
+</Dialog> */}

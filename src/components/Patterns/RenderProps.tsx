@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { NameProvider } from './NameProvider';
 import { MouseProvider } from './MouseProvider';
 
