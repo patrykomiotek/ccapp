@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react';
 
-import { ProductsList } from './ProductsList';
+import { ProductsList } from '../ProductsList';
 
 export default {
   title: 'App/Products/ProductsList',
