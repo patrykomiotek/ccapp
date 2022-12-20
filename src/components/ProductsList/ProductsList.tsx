@@ -1,32 +1,5 @@
-import { useEffect, useState } from 'react';
-
 import { useApi } from '@hooks/useApi';
-
-interface ProductResponse {
-  records: Product[];
-}
-
-interface Product {
-  id: string;
-  fields: {
-    name: string;
-    description: string;
-  }
-}
-
-type Status = {
-  products: Product[];
-  isLoading: true,
-  isError: false
-} | {
-  products: Product[];
-  isLoading: false;
-  isError: false;
-} | {
-  products: Product[];
-  isLoading: false;
-  isError: true;
-}
+import type { Product } from '@apptypes/Product';
 
 const ProductsList = () => {
   // const status = useApi<Product[]>('/products');

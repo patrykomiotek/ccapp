@@ -25,9 +25,7 @@ const useApi = <T>(endpoint: string) => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}${endpoint}`, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
-      },
-      // method: 'POST',
-      // body: JSON.stringify(data)
+      }
     })
     .then(response => response.json())
     .then(data => {
