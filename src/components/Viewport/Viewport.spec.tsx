@@ -1,3 +1,16 @@
+// jest.mock('@hooks/useViewport', () => {
+//   const originalModule = jest.requireActual('@hooks/useViewport');
+//   return {
+//     ...originalModule,
+//     useViewport: jest.fn(),
+//   }
+// });
+
+jest.mock('@hooks/useViewport', () => ({
+  useViewport: jest.fn(),
+  // useViewport: () => ({ x: 10, y: 20 }),
+}));
+
 import { render, screen } from '@testing-library/react';
 
 import { useViewport } from '@hooks/useViewport';
@@ -7,9 +20,6 @@ import { Viewport } from './Viewport';
 //   useViewport: () => ({ x: 100, y: 200 }),
 // }));
 
-jest.mock('@hooks/useViewport', () => ({
-  useViewport: jest.fn(),
-}));
 
 const mockedUseViewport = useViewport as jest.Mock;
 
