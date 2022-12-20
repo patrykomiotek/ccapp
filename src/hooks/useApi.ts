@@ -22,9 +22,9 @@ const useApi = <T>(endpoint: string) => {
   });
 
   useEffect(() => {
-    fetch(`https://api.airtable.com/v0/appDleOUdMfbmEAxQ${endpoint}`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}${endpoint}`, {
       headers: {
-        Authorization: 'Bearer keyusGQPKzOs4Y2lp'
+        Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
       }
     })
     .then(response => response.json())
