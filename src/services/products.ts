@@ -1,7 +1,7 @@
 import { api } from '@services/config';
 import type { Product } from '@apptypes/Product';
 
-interface ProductsResponse {
+export interface ProductsResponse {
   records: Product[];
 }
 
