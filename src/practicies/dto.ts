@@ -10,6 +10,7 @@ import {
   IsDate,
   Min,
   Max,
+  ValidationError,
 } from 'class-validator';
 
 export class Post {
@@ -41,7 +42,7 @@ post.rating = 11; // should not pass
 post.email = 'google.com'; // should not pass
 post.site = 'googlecom'; // should not pass
 
-validate(post).then(errors => {
+validate(post).then((errors: ValidationError[]) => {
   // errors is an array of validation errors
   if (errors.length > 0) {
     console.log('validation failed. errors: ', errors);
@@ -50,14 +51,14 @@ validate(post).then(errors => {
   }
 });
 
-validateOrReject(post).catch(errors => {
+validateOrReject(post).catch((errors: ValidationError[]) => {
   console.log('Promise rejected (validation failed). Errors: ', errors);
 });
 // or
-async function validateOrRejectExample(input) {
-  try {
-    await validateOrReject(input);
-  } catch (errors) {
-    console.log('Caught promise rejection (validation failed). Errors: ', errors);
-  }
-}
+// async function validateOrRejectExample(input) {
+//   try {
+//     await validateOrReject(input);
+//   } catch (errors) {
+//     console.log('Caught promise rejection (validation failed). Errors: ', errors);
+//   }
+// }

@@ -13,10 +13,6 @@ let priceExtended = {
   currency: 'PLN'
 }
 
-type Money = number;
-
-
-
 
 let salary: number;
 let age: number;
@@ -30,8 +26,6 @@ age * age
 salary + employmentInYears
 
 // allowed operations:
-
-
 
 
 console.log(price, priceExtended);

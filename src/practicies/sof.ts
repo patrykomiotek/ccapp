@@ -1,4 +1,4 @@
-type Currency = 'PLN' | 'USD';
+// type Currency = 'PLN' | 'USD';
 
 const config = {
   BASE_URL: 'http://example.com',
@@ -19,7 +19,7 @@ const tuple = ['PLN', 125, true] as const;
 type First = typeof tuple[0];
 type Second = typeof tuple[1];
 type Other = typeof tuple[number];
-type Invalid = typeof[3];
+// type Invalid = typeof[3]; // invalid
 
 // return type
 function produceOrder() {

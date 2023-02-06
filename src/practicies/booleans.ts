@@ -18,7 +18,7 @@ type StateModified =
 
 let state2: StateModified;
 state2 = { type: 'LOADING' };
-state2 = { type: 'ERROR' }
-state2 = { type: 'ERROR', error: new Error(), data: 'abcd' };
+// state2 = { type: 'ERROR' } // error
+// state2 = { type: 'ERROR', error: new Error(), data: 'abcd' }; // error
 
 

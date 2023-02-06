@@ -1,8 +1,5 @@
 // object doesn't have its identity
 
-import { monitorEventLoopDelay } from "perf_hooks";
-
-
 type Currency = 'EUR' | 'PLN';
 
 class Money {
@@ -32,9 +29,9 @@ class Money {
 }
 
 const m = Money.from(88, 'PLN');
-m + 4;
+// m + 4; // invalid
 
-const n: number = m;
+// const n: number = m; // invalid
 
 const sum1 = m.add(Money.from(1.23, 'PLN'));
 const sum2 = m.add(Money.from(1.23, 'EUR')); // kompiluje się, bo typy są zgodne
