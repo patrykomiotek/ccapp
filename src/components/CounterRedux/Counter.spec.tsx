@@ -6,20 +6,20 @@ import { store } from '../../root-store';
 import { Counter } from './Counter';
 
 // utils:
-export function renderWithProviders(
-  ui: React.ReactElement,
-  {
-    preloadedState = {},
-    // Automatically create a store instance if no store was passed in
-    store = setupStore(preloadedState),
-    ...renderOptions
-  }: ExtendedRenderOptions = {}
-) {
-  function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Provider store={store}>{children}</Provider>
-  }
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
-}
+// export function renderWithProviders(
+//   ui: React.ReactElement,
+//   {
+//     preloadedState = {},
+//     // Automatically create a store instance if no store was passed in
+//     store = setupStore(preloadedState),
+//     ...renderOptions
+//   }: ExtendedRenderOptions = {}
+// ) {
+//   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+//     return <Provider store={store}>{children}</Provider>
+//   }
+//   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) }
+// }
 // renderWithProviders(<Counter />)
 
 describe('<Counter /> with redux component', () => {

@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { RegistrationForm } from "./RegistrationForm";
 
 describe('<RegistrationForm />', () => {
-  it('should display error message for email field', async () => {
+  it('should display error message for email field', () => {
     const onSubmit = jest.fn();
     const defaultValues = {
       email: 'test@wp.pl',
@@ -26,7 +26,10 @@ describe('<RegistrationForm />', () => {
 
     expect(screen.getByText('E-mail is invalid')).toBeInTheDocument();
 
-    userEvent.click(screen.getByRole('button', {  name: /send/i }));
+    // expect(screen.getByText(t('do-not-have-an-account') as string)).toBeInTheDocument();
+    // expect(screen.getByText(t('do-not-have-an-account') as string)).toBeInTheDocument();
+
+    userEvent.click(screen.getByRole('button', { name: /send/i }));
 
   });
 });
